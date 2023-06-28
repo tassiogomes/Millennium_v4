@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,18 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('login/{id}',[ApiController::class, 'showLogin']);
+Route::post('register', [ApiController::class, 'register']);
+Route::post('users/{id}/simulacoes', [ApiController::class, 'createSimulacao']);
+Route::get('users/{userId}/simulacoes/{simulacaoId}', [ApiController::class, 'showSimulacao']);
+    
+/*Route::post('simulacoes', [ApiController::class, 'createSimulacao']);
+Route::get('users/{id}/simulacoes', [UserController::class, 'showSimulations']);*/
+
+
+
+
+
+

@@ -25,6 +25,7 @@ class AuthController extends Controller
         $user->save();
  
         return back()->with('success', 'Register successfully');
+        /* return response()->json(['message' => 'Registado'],200); */
     }
 
     public function login()
