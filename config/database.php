@@ -43,7 +43,7 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mysql' => [
+         /* 'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -61,7 +61,35 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+        ], */
+ 
+         /* dd(env('DB_HOST'), env('DB_PORT'), env('DB_DATABASE'), env('DB_USERNAME'), env('DB_PASSWORD')), */
+
+
+
+
+        'mysql' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', 'api2.mysql.database.azure.com'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'millennium_v3'),
+            'username' => env('DB_USERNAME', 'mydemouser'),
+            'password' => env('DB_PASSWORD', '@softdev23'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            /* 'options' => [
+                PDO::MYSQL_ATTR_SSL_CA => '/path/to/ca.pem', // Path to CA certificate
+                PDO::MYSQL_ATTR_SSL_CERT => '/path/to/client-cert.pem', // Path to client certificate
+                PDO::MYSQL_ATTR_SSL_KEY => '/path/to/client-key.pem', // Path to client private key
+            ], */
         ],
+
+
+
 
         'pgsql' => [
             'driver' => 'pgsql',
